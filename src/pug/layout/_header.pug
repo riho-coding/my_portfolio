@@ -8,12 +8,20 @@ include ../svg/_zenn
 
 header.l-header
 	.l-header__inner
-		h1.l-header__logo.u-uppercase
-			a.l-header__logo-link(href="/")
-				span.l-header__logo-before
-					+logo("#07000c")
-				span.l-header__logo-after
-					+logo("#07000c")
+		if page == "top"
+			h1.l-header__logo.u-uppercase
+				a.l-header__logo-link(href="/")
+					span.l-header__logo-before
+						+logo("#07000c")
+					span.l-header__logo-after
+						+logo("#07000c")
+		else if page !== "top"
+			p.l-header__logo.u-uppercase
+				a.l-header__logo-link(href="/")
+					span.l-header__logo-before
+						+logo("#07000c")
+					span.l-header__logo-after
+						+logo("#07000c")
 
 		block global_navigation
 
