@@ -1,0 +1,67 @@
+@use '../../global' as *;
+
+/**
+ * p-index-fv
+ */
+
+.p-index-fv {
+  width: inherit;
+  min-height: calc(var(--vh, 1vh) * 100);
+}
+
+.p-index-fv__inner {
+  position: relative;
+  @include flex(center, center);
+
+  min-height: inherit;
+}
+
+.p-index-fv__title {
+  position: absolute;
+  bottom: 25%;
+  z-index: calc($main-z-index + 1);
+  width: 610px;
+  max-width: 100%;
+  font-size: rem(89);
+  line-height: 1;
+  text-align: center;
+
+  &::before {
+    position: absolute;
+    top: -55%;
+    left: 0.5%;
+    display: block;
+    font-family: $font-en-secondary;
+    font-size: rem(89);
+    color: $accent-color-primary-dark;
+    letter-spacing: -0.03em;
+    content: 'My';
+    transform: rotate(-8deg);
+  }
+
+  &::after {
+    position: absolute;
+    top: 0;
+    right: 3%;
+    display: inline-block;
+    width: clamp(1.875rem, 1.659rem + 0.96vw, 2.5rem);
+    height: clamp(1.5rem, 1.349rem + 0.67vw, 1.938rem);
+    content: '';
+    background: url(../img/fv_title_ad.svg) no-repeat;
+    background-size: contain;
+  }
+}
+
+.p-index-fv__title--sans-serif {
+  display: inline-block;
+  font-weight: 700;
+  text-indent: 0.06em;
+  letter-spacing: 0.06em;
+}
+
+.p-index-fv__title--serif {
+  display: inline-block;
+  font-family: $font-en-primary;
+  text-indent: 0.12em;
+  letter-spacing: 0.12em;
+}
