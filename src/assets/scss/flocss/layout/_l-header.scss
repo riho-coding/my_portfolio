@@ -72,7 +72,26 @@
 }
 
 .l-header__nav-item {
+  position: relative;
   font-family: $font-en-primary;
+
+  // カレント表示時のスタイル
+  &.-current {
+    pointer-events: none;
+
+    &::after {
+      position: absolute;
+      bottom: -2px;
+      left: 50%;
+      display: inline-block;
+      width: 4px;
+      height: 4px;
+      content: '';
+      background-color: $accent-color-secondary-dark;
+      border-radius: 50%;
+      transform: translateX(-50%);
+    }
+  }
 }
 
 .l-header__nav-item + .l-header__nav-item {

@@ -3,15 +3,15 @@
 -
 	const nav = {
 		works : {
-			name : "Works",
+			name : "works",
 			url :"/works/"
 		},
 		me : {
-			name : "Me",
+			name : "me",
 			url : "/me/"
 		},
 		contact : {
-			name : "Contact",
+			name : "contact",
 			url : "/contact/"
 		}
 	};
@@ -28,4 +28,4 @@ mixin global_navigation(current)
 		ul.l-header__nav
 			each item in nav
 				li(class=`l-header__nav-item ${currentCheck(item.name)}`)
-					a.l-header__nav-link(href=item.url) #{item.name}
+					a.l-header__nav-link.u-capitalize(href=item.url) #{item.name}
