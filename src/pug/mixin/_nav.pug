@@ -1,0 +1,31 @@
+//- _nav.pug
+
+-
+	const nav = {
+		works : {
+			name : "Works",
+			url :"/works/"
+		},
+		me : {
+			name : "Me",
+			url : "/me/"
+		},
+		contact : {
+			name : "Contact",
+			url : "/contact/"
+		}
+	};
+	function currentCheck(i){
+		if ( i == page )
+			return "-current";
+		else
+			return "";
+	};
+
+//- グローバルナビゲーション
+mixin global_navigation(current)
+	nav.l-header__nav-area
+		ul.l-header__nav
+			each item in nav
+				li(class=`l-header__nav-item ${currentCheck(item.name)}`)
+					a.l-header__nav-link(href=item.url) #{item.name}

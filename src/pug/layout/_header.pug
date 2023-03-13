@@ -1,0 +1,32 @@
+//- header.pug
+
+//- mixin化したSVGの読み込み
+include ../svg/_logo
+include ../svg/_github
+include ../svg/_codepen
+include ../svg/_zenn
+
+header.l-header
+	.l-header__inner
+		h1.l-header__logo.u-uppercase
+			a.l-header__logo-link(href="/")
+				span.l-header__logo-before
+					+logo("#07000c")
+				span.l-header__logo-after
+					+logo("#07000c")
+
+		block global_navigation
+
+		ul.l-header__sns-nav
+			li.l-header__sns-item
+				a.l-header__sns-link(href="https://github.com/riho-coding" target="_blank")
+					span.u-visibility-hidden GitHub（外部リンク）
+					+iconGitHub("#07000c")
+			li.l-header__sns-item
+				a.l-header__sns-link(href="https://codepen.io/_Developes" target="_blank")
+					span.u-visibility-hidden Codepen（外部リンク）
+					+iconCodepen("#07000c")
+			li.l-header__sns-item
+				a.l-header__sns-link(href="https://zenn.dev/sayuki_coding" target="_blank")
+					span.u-visibility-hidden Zenn（外部リンク）
+					+iconZenn("#07000c")
