@@ -4,15 +4,15 @@
 	const nav = {
 		works : {
 			name : "works",
-			url :"/works/"
+			slug :"/works/"
 		},
 		me : {
 			name : "me",
-			url : "/me/"
+			slug : "/me/"
 		},
 		contact : {
 			name : "contact",
-			url : "/contact/"
+			slug : "/contact/"
 		}
 	};
 	function currentCheck(i){
@@ -28,4 +28,4 @@ mixin global_navigation(current)
 		ul.l-header__nav
 			each item in nav
 				li(class=`l-header__nav-item ${currentCheck(item.name)}`)
-					a.l-header__nav-link.u-capitalize(href=item.url) #{item.name}
+					a.l-header__nav-link.u-capitalize(href=item.slug) #{item.name}

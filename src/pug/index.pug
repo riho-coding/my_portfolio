@@ -11,8 +11,7 @@ block global_navigation
 	+global_navigation(top)
 
 block main
-	include ./mixin/_picture
-	main.l-main
+	main.l-hero
 		.p-index-fv
 			.p-index-fv__inner
 				h2.p-index-fv__title.u-uppercase
@@ -21,7 +20,5 @@ block main
 				canvas#gradient-canvas(data-transition-in)
 
 block script
-	script(src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js")
-	script(src=[path]+"js/swiper.bundle.js")
-	script(src=[path]+"js/swiper.Gradient.js")
+	script(src=[path]+"js/Gradient.js")
 	script(src=[path]+"js/main.bundle.js")

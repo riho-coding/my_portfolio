@@ -5,14 +5,14 @@
  */
 
 .p-index-fv {
-  width: inherit;
-  min-height: calc(var(--vh, 1vh) * 100);
+  @include flex(center, center);
 }
 
 .p-index-fv__inner {
   position: relative;
   @include flex(center, center);
 
+  width: inherit;
   min-height: inherit;
 }
 
@@ -42,10 +42,10 @@
   &::after {
     position: absolute;
     top: 0;
-    right: 3%;
+    right: 1%;
     display: inline-block;
-    width: clamp(1.875rem, 1.659rem + 0.96vw, 2.5rem);
-    height: clamp(1.5rem, 1.349rem + 0.67vw, 1.938rem);
+    width: fluid(30, 40);
+    height: fluid(24, 30);
     content: '';
     background: url(../img/fv_title_ad.svg) no-repeat;
     background-size: contain;

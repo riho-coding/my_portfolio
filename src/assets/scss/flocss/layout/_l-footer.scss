@@ -5,12 +5,13 @@
  */
 
 .l-footer {
-  position: fixed;
+  position: sticky;
   bottom: 0;
   left: 0;
   z-index: $header-z-index;
   width: 100%;
-  backdrop-filter: blur(10px); // 背景のぼかし
+  backdrop-filter: blur(5px); // 背景のぼかし
+  background-color: rgba($base-color-500, 0.88);
 }
 
 .l-footer__inner {

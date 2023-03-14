@@ -1,0 +1,9 @@
+@use '../global' as *;
+
+/**
+ * l-hero
+ */
+
+.l-hero {
+  @include flex(center, center);
+}
