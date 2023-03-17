@@ -8,10 +8,8 @@
 }
 
 .p-works-project__inner {
-  width: min(100% - 7.5vw, 85vw);
-  padding-bottom: 144px;
-  margin-inline: auto;
   overflow: hidden;
+  padding-bottom: 144px;
 }
 
 .p-works-project__list {
@@ -42,7 +40,8 @@
 .p-works-project__link {
   position: relative;
   display: grid;
-  grid-template-areas: 'category category category category category'
+  grid-template-areas:
+    'category category category category category'
     'arrow--left title title title arrow--right';
   grid-template-rows: auto 1fr;
   grid-template-columns: auto 1fr 1fr 1fr auto;
