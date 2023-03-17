@@ -1,0 +1,33 @@
+//- lower/index.pug
+
+extends ../layout/_template
+
+block variable
+	- const page = "contact";
+	- const path = "../";
+
+block global_navigation
+	include ../mixin/_nav
+	+global_navigation(contact)
+
+block main
+	main.l-main
+		h1.u-visibility-hidden Contact
+		section.l-section.p-contact-page
+			.p-contact-page__inner
+				h2.c-section-title Contact
+				p.p-contact-page__text ご依頼・ご相談は下記のいずれかよりお願いいたします。
+					br
+					| 内容を確認いたしまして、通常3営業日以内にご返信いたします。
+				ul.p-contact-page__link-list
+					li.p-contact-page__item
+						a.p-contact-page__link(href="mailto:riho.coding@gmail.com" target="_blank")
+							span.p-contact-page__link-text E-mail
+							span.p-contact-page__arrow
+					li.p-contact-page__item
+						a.p-contact-page__link(href="https://www.chatwork.com/riho-coding" target="_blank")
+							span.p-contact-page__link-text Chatwork
+							span.p-contact-page__arrow
+
+block script
+	script(src=[path]+"js/main.bundle.js")
