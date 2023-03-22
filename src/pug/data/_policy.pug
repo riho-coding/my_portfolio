@@ -1,0 +1,67 @@
+//- data/_policy.pug
+
+//- コーディングポリシー
+
+-
+	const HTML = {
+		title: "W3CのHTML Living Standardの仕様に準拠。",
+		description: "文書構造に適したセマンティックかつリーダブルなマークアップを行います。",
+		styling: "CSSによるスタイリングは基本的にclass属性のみ使用。id属性は使用しません。（CSSの詳細度を一定に保つため）",
+		javascript: "JavaScript（jQuery）で、1つの要素のみ操作する場合はid属性、複数の要素を操作する場合はclass属性を用い、接頭辞として”js-”を使用。",
+		accessibility: "webアクセシビリティを向上させるため、必要に応じて要素にWAI-ARIAのrole属性、aria-*属性で補完します。",
+		template_engine: "コーディングの効率化を図るため、テンプレートエンジンのPugを使用します。"
+	};
+
+-
+	const CSS = {
+		selector: "原則classセレクタ指定を用います。（ul要素など子要素が限定されているものや、限定的な属性セレクタは可とします）",
+		design: "CSS設計は、BEMベースのFLOCSS記法。（複数ページのwebサイトの場合、<a class=\"c-ex-link\" href=\"https://zenn.dev/wagashi_osushi/books/94efd21a66ccaa\" target=\"_blank\">PDFLOCSS</a>を採用しています）",
+		reset_CSS: "リセットCSSは<a class=\"c-ex-link\" href=\"https://nicolas-cusan.github.io/destyle.css/\" target=\"_blank\">destyle.css</a>を使用。",
+		important: "既存のCSSを上書きする目的で<code>!important</code>を使用しません。",
+		scss: "CSS拡張メタ言語のSCSS記法を使用します。SassのコンパイラはDart Sassを採用。",
+		shorthand: "ショートハンドは可読性や保守性の観点から、極力使用しません。",
+		device_compatibility: "基本的にどのデバイスで見ても崩れや違和感が起きないように調節をしています。"
+	};
+
+-
+	const JS = {
+		naming_convention: "変数・関数の命名はキャメルケースを採用。",
+		use: "原則JavaScriptを使用。jQueryを使用する場合はGoogleのCDNを利用し、最新バージョンの3.6.3を読み込みます。",
+		libraries: "ライブラリを導入する場合は、jQuery非依存のものを採用します。（Swiper、GSAP、Micromodal.jsなど）",
+		syntax: "ES2015以降の記法を採用。webpackとBabelを使い、古いブラウザも対応しています。",
+	};
+
+//- デザインポリシー
+
+-
+	const design_rule = {
+		prototyping: "デザインツールのプロトタイプを使用し、アニメーションやインタラクションを実装します。",
+		animation: "複雑なアニメーションを指定する場合、参考サイトの共有や、Codepenなどでサンプルコードを添付。",
+		guidelines: "デザインカンプ作成時は、コーディングのためのガイドラインも制作。",
+		responsive: "スマホ版のカンプは360px、タブレット版のカンプは900px、PC版のカンプは1280px～1440pxで作成します。"
+	};
+
+-
+	const design_plan = {
+		contrast: "webアクセシビリティを考慮し、WCAG 2.1の達成基準に則ったコントラスト比（4.5:1）を担保します。",
+		consistency: "デザインの一貫性、視認性を重視し、有用性の高いwebサイトになるように設計。",
+		design_elements: "課題解決を目標に、トンマナ、タイポグラフィー、余白を選定。"
+	};
+
+//- 制作環境
+
+-
+	const environment = {
+	OS: "Windows",
+	PC: "Surface Laptop 3 / 13.5インチ / Core i7-1065G7",
+	coding: "Visual Studio Code",
+	design: "基本的にFigmaを使用。Adobe XDにも対応可能。",
+	version_control: "GitHubとSourcetreeを利用",
+	lint: "Prettier、Stylelint、ESLintを使用",
+	browser_check: "Chrome、Edge、Firefox、iOS Safariでチェックを行い、原則、最新版ブラウザでのチェックを標準とし、IEはチェック対象外ブラウザとします。",
+	};
+
+-
+	const vscode = {
+		setting: "設定（settings.json）は、<a class=\"c-ex-link\" href=\"https://zenn.dev/sayuki_coding/articles/c389d9ad48feaa\" target=\"_blank\">こちらのZennの記事</a>にまとめています。",
+	};
