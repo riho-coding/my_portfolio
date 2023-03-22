@@ -1,0 +1,77 @@
+//- lower/index.pug
+
+extends ../layout/_template
+
+block variable
+	- const page = "me";
+	- const path = "../";
+
+block global_navigation
+	include ../mixin/_nav
+	+global_navigation(me)
+
+block main
+	main.l-main
+		.l-main__inner
+			h1.u-visibility-hidden Policy
+			section.l-section.p-policy-page
+				.p-policy-page__inner
+					h2.c-section-title My Policy
+					p.p-policy-page__text webサイト制作をするにあたって、以下のポリシーを定め、これを遵守しています。
+					ul.p-policy-page__toc
+						li.p-policy-page__toc-item
+							a(href="#coding") コーディングポリシー
+						li.p-policy-page__toc-item
+							a(href="#design") デザイン・制作ポリシー
+					p.p-policy-page__text 制作環境についてはこちら。
+					ul.p-policy-page__toc
+						li.p-policy-page__toc-item
+							a(href="#environment") 制作環境
+						li.p-policy-page__toc-item
+							a(href="#vscode") VScodeの環境設定
+
+			section.l-section.p-policy-page#coding
+				.p-policy-page__inner
+					h2.c-section-title Coding Policy
+					ul.p-policy-page__list
+						li.p-policy-page__list-item HTML
+							ul.p-policy-page__nest-list
+								each item in HTML
+									li.p-policy-page__nest-item !{item}
+						li.p-policy-page__list-item CSS
+							ul.p-policy-page__nest-list
+								each item in CSS
+									li.p-policy-page__nest-item !{item}
+						li.p-policy-page__list-item JavaScript
+							ul.p-policy-page__nest-list
+								each item in JS
+									li.p-policy-page__nest-item !{item}
+
+			section.l-section.p-policy-page#design
+				.p-policy-page__inner
+					h2.c-section-title Design Policy
+					ul.p-policy-page__list
+						li.p-policy-page__list-item 制作ルール
+							ul.p-policy-page__nest-list
+								each item in design_rule
+									li.p-policy-page__nest-item !{item}
+						li.p-policy-page__list-item 設計
+							ul.p-policy-page__nest-list
+								each item in design_plan
+									li.p-policy-page__nest-item !{item}
+
+			section.l-section.p-policy-page#environment
+				.p-policy-page__inner
+					h2.c-section-title Production Environment
+					ul.p-policy-page__list
+						li.p-policy-page__list-item#environment 制作環境
+							ul.p-policy-page__nest-list
+								each item in environment
+									li.p-policy-page__nest-item !{item}
+						li.p-policy-page__list-item#vscode VScodeの環境設定
+							ul.p-policy-page__nest-list
+								each item in vscode
+									li.p-policy-page__nest-item !{item}
+
+block script
+	script(src=[path]+"js/main.bundle.js")
