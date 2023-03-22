@@ -1,0 +1,106 @@
+@use '../../global' as *;
+
+/**
+ * p-policy-page
+ */
+
+.p-policy-page {
+}
+
+.p-policy-page:last-child {
+  padding-bottom: 144px;
+}
+
+.p-policy-page + .p-policy-page {
+  margin-top: 144px;
+}
+
+.p-policy-page__inner {
+  overflow: hidden;
+}
+
+.p-policy-page__text {
+  margin-top: 55px;
+  line-height: 175%;
+}
+
+.p-policy-page__toc {
+  margin-top: 21px;
+}
+
+.p-policy-page__toc-item {
+  position: relative;
+  padding-left: 34px;
+  line-height: 1;
+
+  &::before {
+    position: absolute;
+    top: 0.5rem;
+    left: 0;
+    display: inline-block;
+    width: 21px;
+    height: 1px;
+    content: '';
+    background-color: $base-color-100;
+  }
+
+  > a {
+    display: inline-block;
+    text-decoration: underline;
+  }
+}
+
+.p-policy-page__toc-item + .p-policy-page__toc-item {
+  margin-top: 13px;
+}
+
+.p-policy-page__list {
+  margin-top: 55px;
+}
+
+.p-policy-page__list-item {
+  position: relative;
+  padding-left: 34px;
+  line-height: 1;
+
+  &::before {
+    position: absolute;
+    top: 0.5rem;
+    left: 0;
+    display: inline-block;
+    width: 21px;
+    height: 1px;
+    content: '';
+    background-color: $base-color-100;
+  }
+}
+
+.p-policy-page__list-item + .p-policy-page__list-item {
+  margin-top: 55px;
+}
+
+.p-policy-page__nest-list {
+  margin-top: 21px;
+}
+
+.p-policy-page__nest-item {
+  position: relative;
+  padding-left: 1.25rem;
+  line-height: 175%;
+
+  &::before {
+    position: absolute;
+    top: 0.65rem;
+    left: 0;
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    content: '';
+    background-color: $base-color-300;
+    border-radius: 50%;
+  }
+}
+
+.p-policy-page__nest-item + .p-policy-page__nest-item {
+  margin-top: 8px;
+}
