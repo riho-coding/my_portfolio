@@ -18,6 +18,9 @@
   font-size: rem(15);
   line-height: 175%;
   letter-spacing: 0.02em;
+  @include mq(mobile) {
+    font-size: rem(14);
+  }
 }
 
 .p-contact-page__link-list {
