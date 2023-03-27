@@ -12,7 +12,7 @@
 
 .p-me-profile__wrapper {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(377px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(292px, 1fr));
   row-gap: 34px;
   column-gap: fluid(34, 70);
   margin-top: 55px;
@@ -43,6 +43,9 @@
   margin-top: 34px;
   font-size: rem(15);
   line-height: 1.75;
+  @include mq(mobile) {
+    font-size: rem(14);
+  }
 }
 
 .p-me-profile__avatar {
@@ -53,5 +56,9 @@
 
   img {
     height: fit-content;
+  }
+
+  @include mq(mobile) {
+    justify-content: flex-start;
   }
 }
