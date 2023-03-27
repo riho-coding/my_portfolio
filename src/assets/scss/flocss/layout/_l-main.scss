@@ -1,0 +1,21 @@
+@use '../global' as *;
+
+/**
+ * l-main
+ */
+
+.l-main {
+  padding-top: 55px;
+
+  // section-titleのカウンターの値をリセット
+  counter-reset: section-title;
+}
+
+.l-main__inner {
+  width: min(100% - 7.5vw, 85vw);
+  margin-inline: auto;
+  overflow: hidden;
+  @include mq(mobile) {
+    width: calc(100% - 34px * 2);
+  }
+}

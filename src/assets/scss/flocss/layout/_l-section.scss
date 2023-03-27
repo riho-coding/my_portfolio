@@ -1,0 +1,10 @@
+@use '../global' as *;
+
+/**
+ * l-section
+ */
+
+.l-section {
+  // section-titleのカウンターの値を進め、contentで表示
+  counter-increment: section-title;
+}
