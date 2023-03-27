@@ -1,0 +1,97 @@
+//- lower/index.pug
+
+extends ../layout/_template
+
+block variable
+	- const page = "me";
+	- const path = "../";
+
+block global_navigation
+	include ../mixin/_nav
+	+global_navigation(me)
+
+block main
+	include ../svg/_me_graphics
+	main.l-main
+		.l-main__inner
+			h1.u-visibility-hidden Me
+			section.l-section.p-me-profile
+				.p-me-profile__inner
+					h2.c-section-title Profile
+					.p-me-profile__wrapper
+						.p-me-profile__content
+							p.p-me-profile__name Liho TANAKA
+								span.p-me-profile__job Coder / Designer
+							p.p-me-profile__text 1995年生まれ。北海道札幌市出身。
+								br
+								| 調理製菓専門学校を卒業後、全国のホテルや旅館で仲居・レストランサービスとして接客サービスの経験を積む。2021年、培ったコミュニケーションスキルをベースに、クリエイティブに技術を磨けるWebの世界でキャリアを築きたいと考え、同年、職業訓練校に通い、Web制作スキルを学びました。
+								br
+								| 現在、同校のアシスト講師として勤務する傍ら、独学でフロントエンド技術、Webデザインを勉強しています。タイポグラフィー、UI / UX、アクセシビリティに興味があり、幅広いユーザーに配慮できるクリエイターを目指しています。
+						figure.p-me-profile__avatar
+							img(src=[path] + "img/avatar.png" alt="" width="280" height="149" decoding="async" loading="lazy")
+
+			section.l-section.p-me-skills
+				.p-me-skills__inner
+					h2.c-section-title Skills
+					.p-me-skills__wrapper
+						.p-me-skills__item
+							h3.p-me-skills__title(data-title="コーディング") Web Coding
+							p.p-me-skills__text 職業訓練校に通いwebサイト制作の技術、言語、ツールなど、すべて独学で習得しました。検索力に自信があり、自己解決力が高く、インターネットや書籍などの情報を活用することができるため、問題解決力が高いといえます。
+						.p-me-skills__item
+							h3.p-me-skills__title(data-title="Webデザイン") Web Design
+							p.p-me-skills__text 職業訓練校に通いwebサイト制作の技術、言語、ツールなど、すべて独学で習得しました。検索力に自信があり、自己解決力が高く、インターネットや書籍などの情報を活用することができるため、問題解決力が高いといえます。
+					a.p-me-skills__link(href="/policy/") 制作ポリシーはこちら
+
+			section.l-section.p-me-skill-set
+				.p-me-skill-set__inner
+					h2.c-section-title Skill Set
+					.p-me-skill-set__wrapper
+						.p-me-skill-set__item
+							h3.p-me-skill-set__name Language
+							ul.p-me-skill-set__list
+								each item in lang
+									li.p-me-skill-set__list-item #{item}
+						.p-me-skill-set__item
+							h3.p-me-skill-set__name Dev Tools
+							ul.p-me-skill-set__list
+								each item in dev_tools
+									li.p-me-skill-set__list-item #{item}
+						.p-me-skill-set__item
+							h3.p-me-skill-set__name Libraries / CMS
+							ul.p-me-skill-set__list
+								each item in library
+									li.p-me-skill-set__list-item #{item}
+						.p-me-skill-set__item
+							h3.p-me-skill-set__name Design Tools
+							ul.p-me-skill-set__list
+								each item in design_tools
+									li.p-me-skill-set__list-item #{item}
+						.p-me-skill-set__item
+							h3.p-me-skill-set__name Communication
+							ul.p-me-skill-set__list
+								each item in communication
+									li.p-me-skill-set__list-item #{item}
+						.p-me-skill-set__item
+							h3.p-me-skill-set__name Other
+							ul.p-me-skill-set__list
+								each item in other
+									li.p-me-skill-set__list-item #{item}
+						.p-me-skill-set__item
+							h3.p-me-skill-set__name Socials
+							ul.p-me-skill-set__list
+								each item in socials
+									li.p-me-skill-set__list-item !{item}
+
+			section.l-section.p-me-value
+				.p-me-value__inner
+					h2.c-section-title Value
+					.p-me-value__wrapper
+						+graphics("p-me-value__svg js-show-elm","#07000c", "#07000c")
+						dl.p-me-value__descriptions
+							each item in values
+								.p-me-value__item
+									dt.p-me-value__term(data-en=item.term_en) #{item.term_jp}
+									dd.p-me-value__detail #{item.detail}
+
+block script
+	script(src=[path]+"js/main.bundle.js")
