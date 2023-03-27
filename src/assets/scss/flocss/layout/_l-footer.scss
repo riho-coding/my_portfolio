@@ -16,22 +16,28 @@
 
 .l-footer__inner {
   width: min(100% - 5vw, 90vw);
-  padding-top: 25px;
-  padding-bottom: 25px;
+  padding-top: fluid(17, 25);
+  padding-bottom: fluid(17, 25);
   margin-inline: auto;
   border-top: 1px solid $base-color-200;
 
   @include flex(space-between, center);
+  @include mq(mobile) {
+    justify-content: center;
+  }
 }
 
 .l-footer__time {
   font-family: $font-en-primary;
   font-size: rem(12);
   letter-spacing: 0.1em;
+  @include mq(mobile) {
+    display: none;
+  }
 }
 
 .l-footer__copyright {
   font-family: $font-en-primary;
-  font-size: rem(12);
+  font-size: fluid(10, 12);
   letter-spacing: 0.1em;
 }
