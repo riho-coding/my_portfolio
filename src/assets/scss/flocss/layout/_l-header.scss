@@ -19,10 +19,14 @@
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   width: min(100% - 5vw, 90vw);
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: fluid(12, 20);
+  padding-bottom: fluid(12, 20);
   margin-inline: auto;
   border-bottom: 1px solid $base-color-200;
+
+  @include mq(mobile) {
+    grid-template-columns: 1fr 1fr;
+  }
 
   > :first-child {
     justify-self: start; // 最初のコンテンツは左寄せにする
@@ -65,6 +69,9 @@
 }
 
 .l-header__nav-area {
+  @include mq(mobile) {
+    margin-left: auto;
+  }
 }
 
 .l-header__nav {
@@ -75,6 +82,7 @@
 .l-header__nav-item {
   position: relative;
   font-family: $font-en-primary;
+  font-size: fluid(14, 15);
 
   // カレント表示時のスタイル
   &.-current {
@@ -131,6 +139,9 @@
 
 .l-header__sns-nav {
   @include flex($align-items: center);
+  @include mq(mobile) {
+    display: none;
+  }
 }
 
 .l-header__sns-item {
@@ -138,7 +149,7 @@
 }
 
 .l-header__sns-item + .l-header__sns-item {
-  margin-left: 0.93vw;
+  margin-left: 13px;
 }
 
 .l-header__sns-link {
