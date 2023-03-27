@@ -1,0 +1,57 @@
+@use '../../global' as *;
+
+/**
+ * p-me-profile
+ */
+
+.p-me-profile {
+}
+
+.p-me-profile__inner {
+}
+
+.p-me-profile__wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(377px, 1fr));
+  row-gap: 34px;
+  column-gap: fluid(34, 70);
+  margin-top: 55px;
+}
+
+.p-me-profile__content {
+}
+
+.p-me-profile__name {
+  font-size: rem(34);
+  font-weight: 700;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.p-me-profile__job {
+  display: block;
+  margin-top: 8px;
+  font-family: $font-en-primary;
+  font-size: rem(14);
+  font-weight: 400;
+  color: $accent-color-secondary;
+  text-transform: capitalize;
+  letter-spacing: 0.04em;
+}
+
+.p-me-profile__text {
+  margin-top: 34px;
+  font-size: rem(15);
+  line-height: 1.75;
+}
+
+.p-me-profile__avatar {
+  order: -1;
+  text-align: center;
+  background-color: $accent-color-primary;
+  @include flex(center, flex-end);
+
+  img {
+    height: fit-content;
+  }
+}

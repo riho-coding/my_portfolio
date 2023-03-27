@@ -1,0 +1,56 @@
+@use '../../global' as *;
+
+/**
+ * p-me-skill-set
+ */
+
+.p-me-skill-set {
+  margin-top: 144px;
+}
+
+.p-me-skills__inner {
+}
+
+.p-me-skill-set__wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  row-gap: 55px;
+  column-gap: fluid(34, 70);
+  margin-top: 55px;
+}
+
+.p-me-skill-set__item {
+}
+
+.p-me-skill-set__name {
+  font-family: $font-en-primary;
+  font-size: rem(21);
+  line-height: 1;
+  letter-spacing: 0.02em;
+}
+
+.p-me-skill-set__list {
+  margin-top: 21px;
+}
+
+.p-me-skill-set__list-item {
+  position: relative;
+  padding-left: 34px;
+  line-height: 1;
+
+  &::before {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    display: inline-block;
+    width: 21px;
+    height: 1px;
+    content: '';
+    background-color: $base-color-100;
+    transform: translateY(-50%);
+  }
+}
+
+.p-me-skill-set__list-item + .p-me-skill-set__list-item {
+  margin-top: 13px;
+}

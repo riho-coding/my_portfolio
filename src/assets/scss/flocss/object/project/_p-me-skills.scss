@@ -1,0 +1,54 @@
+@use '../../global' as *;
+
+/**
+ * p-me-skills
+ */
+
+.p-me-skills {
+  margin-top: 144px;
+}
+
+.p-me-skills__inner {
+}
+
+.p-me-skills__wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(377px, 1fr));
+  row-gap: 34px;
+  column-gap: fluid(34, 70);
+  margin-top: 55px;
+}
+
+.p-me-skills__item {
+}
+
+.p-me-skills__link {
+  display: block;
+  margin-top: 34px;
+  margin-left: auto;
+  text-align: right;
+  text-decoration: underline;
+}
+
+.p-me-skills__title {
+  position: relative;
+  padding-top: 20px;
+  font-family: $font-en-primary;
+  font-size: rem(34);
+  letter-spacing: 0.04em;
+
+  &::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: inline-block;
+    font-family: $font-jp;
+    font-size: rem(14);
+    letter-spacing: 0.02em;
+    content: attr(data-title);
+  }
+}
+
+.p-me-skills__text {
+  margin-top: 21px;
+}
