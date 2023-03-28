@@ -14,7 +14,7 @@
 
 .p-works-project__list {
   flex-direction: column;
-  margin-top: 55px;
+  margin-top: fluid(34, 55);
   @include flex;
 }
 
@@ -44,7 +44,7 @@
 }
 
 .p-works-project__item + .p-works-project__item {
-  margin-top: 55px;
+  margin-top: fluid(34, 55);
 }
 
 .p-works-project__link {
@@ -52,7 +52,7 @@
   @include flex;
 
   flex-direction: column;
-  padding-bottom: 21px;
+  padding-bottom: fluid(8, 21);
 
   @include hover(true) {
     .p-works-project__arrow::before {
@@ -131,7 +131,11 @@
     font-size: fluid(34, 89);
     line-height: 0.5;
     color: currentcolor;
+    text-align: right;
     content: '→';
+    @include mq(mobile) {
+      line-height: 0.75;
+    }
   }
 
   &::before {

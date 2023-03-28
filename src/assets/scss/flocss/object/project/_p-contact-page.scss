@@ -4,12 +4,12 @@
  * p-contact-page
  */
 
-.p-works-project {
+.p-contact-page {
 }
 
 .p-contact-page__inner {
   display: grid;
-  row-gap: 55px;
+  row-gap: fluid(34, 55);
   padding-bottom: 144px;
   overflow: hidden;
 }

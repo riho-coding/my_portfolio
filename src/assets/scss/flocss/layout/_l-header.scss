@@ -83,22 +83,26 @@
   position: relative;
   font-family: $font-en-primary;
   font-size: fluid(14, 15);
+}
 
-  // カレント表示時のスタイル
-  &.-current {
-    pointer-events: none;
-
-    &::after {
-      position: absolute;
-      bottom: -2px;
-      left: 50%;
-      display: inline-block;
-      width: 4px;
-      height: 4px;
-      content: '';
-      background-color: $accent-color-secondary-dark;
-      border-radius: 50%;
-      transform: translateX(-50%);
+// カレント表示時のスタイル
+.l-header__nav-item.-current {
+  &::after {
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    display: inline-block;
+    width: 4px;
+    height: 4px;
+    content: '';
+    background-color: $accent-color-secondary-dark;
+    border-radius: 50%;
+    transform: translateX(-50%);
+  }
+  @include hover(true) {
+    .l-header__nav-link::after {
+      transform: scale(0, 1);
+      transform-origin: right top;
     }
   }
 }

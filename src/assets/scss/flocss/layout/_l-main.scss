@@ -9,6 +9,10 @@
 
   // section-titleのカウンターの値をリセット
   counter-reset: section-title;
+
+  @include mq(mobile) {
+    padding-top: 89px;
+  }
 }
 
 .l-main__inner {

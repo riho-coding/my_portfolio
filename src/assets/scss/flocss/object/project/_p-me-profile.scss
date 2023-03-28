@@ -15,7 +15,7 @@
   grid-template-columns: repeat(auto-fit, minmax(292px, 1fr));
   row-gap: 34px;
   column-gap: fluid(34, 70);
-  margin-top: 55px;
+  margin-top: fluid(34, 55);
 }
 
 .p-me-profile__content {
