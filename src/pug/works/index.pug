@@ -22,11 +22,9 @@ block main
 							li.p-works-project__item
 								a.p-works-project__link.js-reveal-link(href=item.slug)
 									h3.p-works-project__title #{item.name}
+										span.p-works-project__arrow
 									span.p-works-project__category #{item.category}
 									.p-works-project__thumbnail.js-reveal-elm
 										img.js-reveal-img(src=[path] + "img/" + item.img_path alt=item.alt width="16" height="" decoding="async" loading="lazy")
-									span.p-works-project__arrow--left
-									span.p-works-project__arrow--right
-
 block script
 	script(src=[path]+"js/main.bundle.js")

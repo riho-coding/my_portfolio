@@ -8,8 +8,8 @@
 }
 
 .p-works-project__inner {
-  overflow: hidden;
   padding-bottom: 144px;
+  overflow: hidden;
 }
 
 .p-works-project__list {
@@ -20,16 +20,26 @@
 
 .p-works-project__item {
   position: relative;
+  transition: color $transition;
 
-  &::before {
+  &::after {
     position: absolute;
     bottom: 0;
     left: 0;
-    z-index: calc($main-z-index + 1);
+    display: inline-block;
     width: 100%;
     height: 1px;
     content: '';
-    background-color: $main-color-100;
+    background-color: $main-color-300;
+    transition: background-color $transition;
+  }
+
+  @include hover(true) {
+    color: $main-color-200;
+
+    &::after {
+      background-color: $main-color-200;
+    }
   }
 }
 
@@ -39,30 +49,22 @@
 
 .p-works-project__link {
   position: relative;
-  display: grid;
-  grid-template-areas:
-    'category category category category category'
-    'arrow--left title title title arrow--right';
-  grid-template-rows: auto 1fr;
-  grid-template-columns: auto 1fr 1fr 1fr auto;
-  grid-auto-flow: row;
-  gap: 13px 0;
+  @include flex;
+
+  flex-direction: column;
   padding-bottom: 21px;
-  transition: padding $transition;
 
   @include hover(true) {
-    padding-left: fluid(34, 89);
+    .p-works-project__arrow::before {
+      opacity: 0;
+      transition: transform $transition, opacity $transition;
+      transform: translateX(150%);
+    }
 
-    .p-works-project__arrow--left {
+    .p-works-project__arrow::after {
       opacity: 1;
-    }
-
-    .p-works-project__arrow--left::after {
-      transform: translate(0, -50%);
-    }
-
-    .p-works-project__arrow--right::after {
-      transform: translate(8rem, -50%);
+      transition: transform $transition, opacity $transition;
+      transform: translateX(0);
     }
   }
 }
@@ -70,7 +72,6 @@
 .p-works-project__title {
   position: relative;
   z-index: calc($main-z-index + 1);
-  grid-area: title;
   font-family: $font-en-primary;
   font-size: fluid(40, 80);
   line-height: 1;
@@ -80,9 +81,8 @@
 .p-works-project__category {
   position: relative;
   z-index: calc($main-z-index + 1);
-  grid-area: category;
   order: -1;
-  padding-bottom: 13px;
+  padding-bottom: fluid(8, 13);
   font-family: $font-en-primary;
   font-size: fluid(12, 14);
   line-height: 1;
@@ -109,42 +109,40 @@
   }
 }
 
-%p-works-project__arrow {
-  position: relative;
-  display: inline-block;
-  width: fluid(26, 55);
-  height: fluid(26, 55);
+.p-works-project__arrow {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  display: block;
+  width: fluid(34, 55);
+  height: fluid(34, 55);
   overflow: hidden;
+  transform: translateY(-50%);
 
+  &::before,
   &::after {
     position: absolute;
-    top: 50%;
+    top: 0;
+    right: 0;
     display: inline-block;
-    overflow: hidden; // アニメーションのちらつき防止
+    width: 100%;
+    height: 100%;
     font-family: $font-en-primary;
-    font-size: fluid(40, 80);
-    line-height: 1;
-    letter-spacing: 0.04em;
+    font-size: fluid(34, 89);
+    line-height: 0.5;
+    color: currentcolor;
     content: '→';
-    transition: left $transition, right $transition, transform $transition;
-    transform: translateY(-50%);
-    backface-visibility: hidden; // アニメーションのちらつき防止
   }
-}
 
-.p-works-project__arrow--left {
-  @extend %p-works-project__arrow;
+  &::before {
+    opacity: 1;
+    transition: transform $transition, opacity $transition;
+    transform: translateX(0);
+  }
 
-  position: absolute;
-  left: -4rem;
-  grid-area: arrow--left;
-  opacity: 0;
-  transition: opacity $transition;
-}
-
-.p-works-project__arrow--right {
-  @extend %p-works-project__arrow;
-
-  right: 0;
-  grid-area: arrow--right;
+  &::after {
+    opacity: 0;
+    transition: transform $transition, opacity $transition;
+    transform: translateX(-150%);
+  }
 }
