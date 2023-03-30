@@ -16,10 +16,10 @@
 }
 
 .l-main__inner {
-  width: min(100% - 7.5vw, 85vw);
+  min-width: 85vw;
+  padding-inline: 7.5vw;
   margin-inline: auto;
   overflow: hidden;
   @include mq(mobile) {
-    width: calc(100% - 34px * 2);
   }
 }
