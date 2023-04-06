@@ -8,16 +8,14 @@
   @include flex(center, center);
   @include mq(mobile) {
     width: 90vw;
-    margin-inline: auto;
+    margin: auto;
   }
 }
 
 .p-index-fv__inner {
   position: relative;
-  @include flex(center, center);
-
-  width: inherit;
-  min-height: inherit;
+  display: grid;
+  place-items: center;
 }
 
 .p-index-fv__title {
@@ -37,6 +35,7 @@
     position: absolute;
     top: -55%;
     left: 0.5%;
+    z-index: calc($main-z-index + 1);
     display: block;
     font-family: $font-en-secondary;
     font-size: rem(89);
@@ -45,9 +44,11 @@
     content: 'My';
     transform: rotate(-8deg);
     @include mq(mobile) {
-      top: -35%;
-      left: fluid(5, 55);
+      top: -55%;
+      left: fluid(15, 55);
+      width: fit-content;
       font-size: fluid(34, 144);
+      line-height: 1.75;
     }
   }
 
@@ -63,7 +64,7 @@
     background-size: contain;
     @include mq(mobile) {
       top: -8%;
-      right: fluid(8, 89);
+      right: fluid(6, 100);
     }
   }
 }

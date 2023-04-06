@@ -6,4 +6,8 @@
 
 .l-hero {
   @include flex(center, center);
+
+  height: calc(var(--vh, 1vh) * 100 - var(--header-height) - var(--footer-height));
+  padding-top: 55px;
+  padding-bottom: 55px;
 }
