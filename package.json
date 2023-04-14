@@ -57,6 +57,7 @@
     "imagemin-pngquant": "^9.0.1",
     "imagemin-svgo": "^8.0.0",
     "vinyl-named": "^1.1.0",
-    "webpack-stream": "^7.0.0"
+    "webpack-stream": "^7.0.0",
+    "whatamesh": "^0.0.1"
   }
 }
