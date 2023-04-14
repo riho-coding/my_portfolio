@@ -1,0 +1,197 @@
+//- layout/_project_template.pug
+
+article.l-section.p-works-template
+	.p-works-template__inner
+
+		//- head
+		section.p-works-template__head
+			h1.p-works-template__title #{project[title]["name"]}
+			span.p-works-template__category #{project[title]["category"]}
+			figure.p-works-template__mockup-img
+				img(src=[path] + "img/" + project[title]["mockup_path"] alt=project[title]["alt"] decoding="async" loading="lazy")
+
+		//- body
+		.p-works-template__body
+
+			//- 概要
+			section.p-works-template__overview
+				h2.p-works-template__subtitle(data-en="Overview") 概要
+				.p-works-template__overview-inner
+					p.p-works-template__text #{project[title]["summary"]}
+					a.p-works-template__link.c-ex-link(href=project[title]["url"] target="_blank") #{project[title]["url"]}
+					ul.p-works-template__link-group
+						//- Githubのキーがない場合は出力しない
+						if (Object.keys(project[title]).find(key => key.indexOf("github") !== -1))
+							li.p-works-template__link-item
+								a.p-works-template__icon(href=project[title]["github"] target="_blank")
+									img(src=[path] + "img/icon_github.svg" alt="GitHubのリンク" width="21" height="22" decoding="async" loading="lazy")
+						//- Figmaのキーがない場合は出力しない
+						if (Object.keys(project[title]).find(key => key.indexOf("figma") !== -1))
+							li.p-works-template__link-item
+								a.p-works-template__icon(href=project[title]["figma"] target="_blank")
+									img(src=[path] + "img/icon_figma.svg" alt="Figmaのリンク" width="18" height="2" decoding="async" loading="lazy")
+
+			//- 情報設計
+			section.p-works-template__information-architecture
+				h2.p-works-template__subtitle(data-en="Information Architecture") 情報設計
+				dl.p-works-template__definition-list
+					.p-works-template__definition-item
+						dt.p-works-template__definition-title 目的
+						dd.p-works-template__definition-description #{project[title]["purpose"]}
+					.p-works-template__definition-item
+						dt.p-works-template__definition-title ターゲット
+						dd.p-works-template__definition-description #{project[title]["purpose"]}
+					.p-works-template__definition-item
+						dt.p-works-template__definition-title 導線設計
+						dd.p-works-template__definition-description #{project[title]["purpose"]}
+
+			//- タイポグラフィー
+			section.p-works-template__typography
+				h2.p-works-template__subtitle(data-en="Typography") タイポグラフィー
+				dl.p-works-template__definition-list
+
+					//- 和文フォント
+					.p-works-template__definition-item
+						dt.p-works-template__definition-title 和文フォント
+						dd.p-works-template__definition-description
+							.p-works-template__definition-block
+								span.u-visibility-hidden #{project[title]["font_jp_primary_name"]}
+								p.p-works-template__font-title
+									img.p-works-template__font-display(src=[path] + "img/" + project[title]["font_jp_primary_display_path"] alt=project[title]["font_jp_primary_name"] decoding="async" loading="lazy")
+									span.p-works-template__font-product (#{project[title]["font_jp_primary_product"]})
+								p.p-works-template__font-preview-list
+									img.p-works-template__font-preview(src=[path] + "img/" + project[title]["font_jp_primary_preview_path"] alt=project[title]["font_jp_primary_name"] + "の書体サンプルです。" width="" height="" decoding="async" loading="lazy")
+									img.p-works-template__font-weight(src=[path] + "img/" + project[title]["font_jp_primary_weight_path"] alt=project[title]["font_jp_primary_name"] + "の書体の太さのサンプルです。" width="" height="" decoding="async" loading="lazy")
+
+							//- secondaryフォントがない場合は出力しない
+							if (Object.keys(project[title]).find(key => key.indexOf("jp_secondary") !== -1))
+								.p-works-template__definition-block
+									span.u-visibility-hidden #{project[title]["font_jp_secondary_name"]}
+									p.p-works-template__font-title
+										img.p-works-template__font-display(src=[path] + "img/" + project[title]["font_jp_secondary_display_path"] alt=project[title]["font_jp_secondary_name"] decoding="async" loading="lazy")
+										span.p-works-template__font-product (#{project[title]["font_jp_secondary_product"]})
+									p.p-works-template__font-preview-list
+										img.p-works-template__font-preview(src=[path] + "img/" + project[title]["font_jp_secondary_preview_path"] alt=project[title]["font_jp_secondary_name"] + "の書体サンプルです。" width="" height="" decoding="async" loading="lazy")
+										img.p-works-template__font-weight(src=[path] + "img/" + project[title]["font_jp_secondary_weight_path"] alt=project[title]["font_jp_secondary_name"] + "の書体の太さのサンプルです。" width="" height="" decoding="async" loading="lazy")
+							else
+
+					//- 欧文フォント
+					.p-works-template__definition-item
+						dt.p-works-template__definition-title 欧文フォント
+						dd.p-works-template__definition-description
+							.p-works-template__definition-block
+								span.u-visibility-hidden #{project[title]["font_en_primary_name"]}
+								p.p-works-template__font-title
+									img.p-works-template__font-display(src=[path] + "img/" + project[title]["font_en_primary_display_path"] alt=project[title]["font_en_primary_name"] decoding="async" loading="lazy")
+									span.p-works-template__font-product (#{project[title]["font_en_primary_product"]})
+								p.p-works-template__font-preview-list
+									img.p-works-template__font-preview(src=[path] + "img/" + project[title]["font_en_primary_preview_path"] alt=project[title]["font_en_primary_name"] + "の書体サンプルです。" width="" height="" decoding="async" loading="lazy")
+									img.p-works-template__font-weight(src=[path] + "img/" + project[title]["font_en_primary_weight_path"] alt=project[title]["font_en_primary_name"] + "の書体の太さのサンプルです。" width="" height="" decoding="async" loading="lazy")
+
+							//- secondaryフォントがない場合は出力しない
+							if (Object.keys(project[title]).find(key => key.indexOf("en_secondary") !== -1))
+								.p-works-template__definition-block
+									span.u-visibility-hidden #{project[title]["font_en_secondary_name"]}
+									p.p-works-template__font-title
+										img.p-works-template__font-display(src=[path] + "img/" + project[title]["font_en_secondary_display_path"] alt=project[title]["font_en_secondary_name"] decoding="async" loading="lazy")
+										span.p-works-template__font-product (#{project[title]["font_en_secondary_product"]})
+									p.p-works-template__font-preview-list
+										img.p-works-template__font-preview(src=[path] + "img/" + project[title]["font_en_secondary_preview_path"] alt=project[title]["font_en_secondary_name"] + "の書体サンプルです。" width="" height="" decoding="async" loading="lazy")
+										img.p-works-template__font-weight(src=[path] + "img/" + project[title]["font_en_secondary_weight_path"] alt=project[title]["font_en_secondary_name"] + "の書体の太さのサンプルです。" width="" height="" decoding="async" loading="lazy")
+							else
+
+			//- カラー
+			section.p-works-template__color-system
+				h2.p-works-template__subtitle(data-en="Color") カラー
+				.p-works-template__color-group
+
+					.p-works-template__color-block
+						span.p-works-template__color-category メインカラー
+						ul.p-works-template__color-pallets
+							each color, index in project[title]["color_main_rgb"]
+								li.p-works-template__color-item
+									span.p-works-template__color-swatch(style=`background-color: ${color};`)
+									p.p-works-template__color-variant Main Color #{project[title]["color_main_rgb"].length - index}00
+										span.p-works-template__color-code #{color}
+
+					.p-works-template__color-block
+						span.p-works-template__color-category ベースカラー
+						ul.p-works-template__color-pallets
+							each color, index in project[title]["color_base_rgb"]
+								li.p-works-template__color-item
+									span.p-works-template__color-swatch(style=`border: 1px solid #b0b0b0; background-color: ${color}`)
+									p.p-works-template__color-variant Base Color #{project[title]["color_main_rgb"].length - index}00
+										span.p-works-template__color-code #{color}
+
+					.p-works-template__color-block--half
+						span.p-works-template__color-category アクセントカラー
+							span Primary
+						ul.p-works-template__color-pallets
+							each color, index in project[title]["color_accent_primary_rgb"]
+								li.p-works-template__color-item
+									span.p-works-template__color-swatch(style=`background-color: ${color}`)
+									p.p-works-template__color-variant
+										span.p-works-template__color-code #{color}
+
+					.p-works-template__color-block--half
+						span.p-works-template__color-category アクセントカラー
+							span Secondary
+						ul.p-works-template__color-pallets
+							each color, index in project[title]["color_accent_secondary_rgb"]
+								li.p-works-template__color-item
+									span.p-works-template__color-swatch(style=`background-color: ${color}`)
+									p.p-works-template__color-variant
+										span.p-works-template__color-code #{color}
+
+			//- 制作ポイント
+			section.p-works-template__point
+				h2.p-works-template__subtitle(data-en="Point") 制作ポイント
+				dl.p-works-template__definition-list--column
+					.p-works-template__definition-item
+						dt.p-works-template__definition-title コーディング
+						dd.p-works-template__definition-description #{project[title]["point_coding"]}
+					.p-works-template__definition-item
+						dt.p-works-template__definition-title デザイン
+						dd.p-works-template__definition-description #{project[title]["point_design"]}
+
+			//- 詳細
+			section.p-works-template__detail
+				h2.p-works-template__subtitle(data-en="Detail") 詳細
+				dl.p-works-template__definition-list--column
+					.p-works-template__definition-item
+						dt.p-works-template__definition-title 担当領域
+						dd.p-works-template__definition-description
+							ul.c-separate-list
+								each item in project[title]["expertise"]
+									li.c-separate-list__item #{item}
+					.p-works-template__definition-item
+						dt.p-works-template__definition-title 使用ツール
+						dd.p-works-template__definition-description
+							ul.c-separate-list
+								each item in project[title]["tool"]
+									li.c-separate-list__item #{item}
+					.p-works-template__definition-item
+						dt.p-works-template__definition-title 使用技術
+						dd.p-works-template__definition-description
+							ul.c-separate-list
+								each item in project[title]["dev"]
+									li.c-separate-list__item #{item}
+
+		//- foot
+		figure.p-works-template__foot
+			ul.p-works-template__screenshots
+				each item in project[title]["screenshots"]
+					li.p-works-template__screenshot
+						img(src=[path] + "img/" + item + ".png" alt="" width="" height="" decoding="async" loading="lazy")
+
+aside.p-works-index
+	.p-works-index__inner
+		ul.p-works-index__list
+			each item in project
+				li.p-works-index__item
+					a.p-works-index__link.js-reveal-link(href=item.slug)
+						.p-works-index__title #{item.name}
+							span.p-works-index__arrow
+						span.p-works-index__category #{item.category}
+						.p-works-index__thumbnail.js-reveal-elm
+							img.js-reveal-img(src=[path] + "img/" + item.img_path alt=item.alt width="16" height="" decoding="async" loading="lazy")

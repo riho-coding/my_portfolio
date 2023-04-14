@@ -1,0 +1,18 @@
+//- layout/_template.pug
+
+include ../data/_data
+include ../data/_project
+include ../data/_policy
+include ../data/_me
+
+block variable
+
+doctype html
+html(lang="ja")
+	include ./_head
+	body(class=meta[page]["class"])
+		.l-wrapper
+			include ./_header
+			block main
+			include ./_footer
+	block script
