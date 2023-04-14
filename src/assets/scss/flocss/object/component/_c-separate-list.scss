@@ -1,0 +1,32 @@
+@use '../../global' as *;
+
+/**
+ * c-separate-list
+ */
+
+.c-separate-list {
+  @include flex;
+
+  flex-wrap: wrap;
+}
+
+.c-separate-list__item {
+  position: relative;
+  line-height: 1.75;
+}
+
+// 最後の要素以外に"/"を付与
+.c-separate-list__item:not(:last-child) {
+  padding-right: 21px;
+
+  &::before {
+    position: absolute;
+    top: 50%;
+    right: 0.5rem;
+    display: inline-block;
+    font-size: rem(15);
+    color: $base-color-100;
+    content: '/';
+    transform: translateY(-50%);
+  }
+}

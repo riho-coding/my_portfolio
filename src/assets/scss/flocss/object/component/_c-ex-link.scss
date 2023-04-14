@@ -1,0 +1,25 @@
+@use '../../global' as *;
+
+/**
+ * c-ex-link
+ */
+
+.c-ex-link {
+  position: relative;
+  display: inline-block;
+  padding-right: 1.25rem;
+  text-decoration: underline;
+
+  &::after {
+    position: absolute;
+    top: 50%;
+    right: 0.25rem;
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    content: '';
+    background: url(/img/icon_arrow.svg) no-repeat;
+    background-size: contain;
+    transform: translateY(-50%);
+  }
+}
