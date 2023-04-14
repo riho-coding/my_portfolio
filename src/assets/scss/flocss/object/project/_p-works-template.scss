@@ -1,0 +1,351 @@
+@use '../../global' as *;
+
+/**
+ * p-works-template
+ */
+
+.p-works-template {
+}
+
+.p-works-template__inner {
+  padding-bottom: 144px;
+}
+
+.p-works-template__head {
+}
+
+.p-works-template__title {
+  font-family: $font-en-primary;
+  font-size: fluid(55, 89);
+  line-height: 1;
+  letter-spacing: 0.04em;
+}
+
+.p-works-template__category {
+  display: inline-block;
+  margin-top: fluid(8, 13);
+  font-family: $font-en-primary;
+  font-size: rem(14);
+  line-height: 1;
+  letter-spacing: 0.04em;
+}
+
+.p-works-template__mockup-img {
+  padding-top: fluid(55, 89);
+  margin-inline: calc(50% - 50vw);
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 377px;
+    object-fit: cover;
+  }
+}
+
+.p-works-template__body {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 144px calc(34px * 2);
+  align-items: start;
+}
+
+// 説明リスト
+.p-works-template__definition-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 55px calc(34px * 2);
+  @include mq(mobile) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.p-works-template__definition-list--column {
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 55px;
+  column-gap: 34px;
+}
+
+.p-works-template__definition-block {
+  display: grid;
+  row-gap: fluid(21, 34);
+}
+
+.p-works-template__definition-block + .p-works-template__definition-block {
+  margin-top: fluid(21, 34);
+}
+
+.p-works-template__definition-item {
+}
+
+.p-works-template__definition-title {
+  position: relative;
+  padding-left: 34px;
+  font-weight: 400;
+  line-height: 1;
+
+  &::before {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    display: inline-block;
+    width: 21px;
+    height: 1px;
+    content: '';
+    background-color: $base-color-100;
+    transform: translateY(-50%);
+  }
+}
+
+.p-works-template__definition-description {
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: fluid(21, 34);
+  margin-top: fluid(21, 34);
+  font-size: rem(14);
+  letter-spacing: 0.02em;
+}
+
+// 概要
+.p-works-template__overview {
+  display: grid;
+  grid-column: span 2;
+  margin-top: 89px;
+}
+
+.p-works-template__overview-inner {
+  margin-top: 55px;
+}
+
+.p-works-template__subtitle {
+  position: relative;
+  padding-bottom: fluid(34, 42);
+  font-size: fluid(12, 14);
+  line-height: 1;
+  letter-spacing: 0.02em;
+
+  &::before {
+    position: absolute;
+    top: 1.25rem;
+    left: 0;
+    display: block;
+    width: 100%;
+    font-family: $font-en-primary;
+    font-size: fluid(24, 34);
+    line-height: 1;
+    letter-spacing: 0.02em;
+    content: attr(data-en);
+    white-apace: pre;
+  }
+}
+
+.p-works-template__text {
+}
+
+.p-works-template__link {
+  display: block;
+  width: fit-content;
+  margin-top: 13px;
+  line-height: 1;
+}
+
+.p-works-template__link-group {
+  margin-top: fluid(13, 34);
+  @include flex($align-items: center);
+}
+
+.p-works-template__link-item {
+}
+
+.p-works-template__link-item + .p-works-template__link-item {
+  margin-left: 13px;
+}
+
+.p-works-template__icon {
+  display: inline-block;
+
+  img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+  }
+}
+
+// 情報設計
+.p-works-template__information-architecture {
+  display: grid;
+  grid-column: span 2;
+  row-gap: 55px;
+}
+
+// タイポグラフィー
+.p-works-template__typography {
+  display: grid;
+  grid-column: span 2;
+  row-gap: fluid(55, 89);
+  padding: 89px calc(50vw - 50%);
+  margin-inline: calc(50% - 50vw);
+  overflow: hidden;
+  background-color: $base-color-400;
+}
+
+.p-works-template__font-title {
+  @include flex($align-items: flex-end);
+
+  flex-wrap: wrap;
+  margin-top: -8px;
+  margin-left: -13px;
+  @include mq(mobile) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.p-works-template__font-display {
+  display: inline-block;
+  width: auto;
+  height: fluid(24, 28);
+  margin-top: 8px;
+  margin-left: 13px;
+}
+
+.p-works-template__font-product {
+  margin-top: 8px;
+  margin-left: 13px;
+  font-size: rem(14);
+  line-height: 1;
+  color: $main-color-200;
+  letter-spacing: 0.04em;
+}
+
+.p-works-template__font-preview {
+  position: relative;
+  display: inline-block;
+  width: auto;
+  height: 61px;
+  object-fit: contain;
+}
+
+.p-works-template__font-weight {
+  display: block;
+  width: auto;
+  height: 21px;
+  margin-top: fluid(13, 21);
+  object-fit: contain;
+}
+
+// カラー
+.p-works-template__color-system {
+  grid-column: span 2;
+}
+
+.p-works-template__color-group {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  row-gap: 34px;
+  margin-top: 55px;
+  @include mq(mobile) {
+    grid-template-columns: 1fr;
+    row-gap: 55px;
+  }
+}
+
+.p-works-template__color-block {
+  grid-column: span 2;
+}
+
+.p-works-template__color-block--half {
+  grid-column: span 1;
+  width: calc(100% - 20%);
+
+  @include mq(mobile) {
+    grid-column: span 2;
+    width: 100%;
+  }
+
+  &:last-child {
+    margin-left: auto;
+  }
+}
+
+.p-works-template__color-category {
+  display: inline-block;
+  padding-bottom: 8px;
+  font-size: rem(15);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: 0.02em;
+  @include mq(mobile) {
+    padding-bottom: 21px;
+  }
+
+  > span {
+    display: inline-block;
+    padding-left: 13px;
+    font-size: rem(12);
+    font-weight: 400;
+    line-height: 1.25;
+    color: $main-color-200;
+  }
+}
+
+.p-works-template__color-pallets {
+  @include flex(space-between);
+  @include mq(mobile) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 21px;
+  }
+}
+
+.p-works-template__color-item {
+  flex: 1;
+}
+
+.p-works-template__color-swatch {
+  display: block;
+  width: 100%;
+  height: 55px;
+}
+
+.p-works-template__color-variant {
+  margin-top: 8px;
+  font-size: fluid(14, 15);
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+}
+
+.p-works-template__color-code {
+  display: block;
+  line-height: 1;
+  color: $base-color-100;
+  letter-spacing: 0.02em;
+}
+
+// 制作ポイント
+.p-works-template__point,
+.p-works-template__detail {
+  display: grid;
+  grid-column: span 1;
+  row-gap: 55px;
+  @include mq(mobile) {
+    grid-column: span 2;
+  }
+}
+
+// スクリーンショットエリア
+.p-works-template__foot {
+  margin-top: 144px;
+}
+
+.p-works-template__screenshots {
+  display: grid;
+  grid-template-columns: calc(80% - 34px) auto;
+  gap: 55px 34px;
+}
+
+.p-works-template__screenshot {
+  img {
+    display: inline-block;
+    border: 1px solid $base-color-100;
+  }
+}
