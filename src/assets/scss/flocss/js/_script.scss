@@ -1,0 +1,37 @@
+@use '../global' as *;
+
+/**
+ * Gradient.js
+ */
+
+#gradient-canvas {
+  background-color: $accent-color-primary;
+  width: 610px;
+  max-width: 100%;
+  height: 610px;
+  max-height: 100%;
+
+  --gradient-color-1: #d2fc00;
+  --gradient-color-2: #edfe99;
+  --gradient-color-3: #f0f0f0;
+  --gradient-color-4: #d2fc00;
+
+  @include mq(mobile) {
+    height: calc(calc(var(--vh, 1vh) * 100 - var(--header-height) - var(--footer-height)) - 55px * 2);
+  }
+}
+
+/**
+ * Intersection Observerを使った
+ * スクロール連動アニメーション
+ */
+
+// MeページのSVGアニメーション
+.js-show-elm.-show path {
+  animation: drawLineStart 1.2s ease-in-out 0s forwards;
+  @keyframes drawLineStart {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+}
