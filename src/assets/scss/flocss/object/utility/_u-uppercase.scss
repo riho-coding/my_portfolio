@@ -1,0 +1,10 @@
+@use '../../global' as *;
+
+/**
+ * u-uppercase
+ * すべての文字を大文字にする
+ */
+
+.u-uppercase {
+  text-transform: uppercase;
+}
