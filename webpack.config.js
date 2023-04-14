@@ -5,7 +5,7 @@ module.exports = {
   // エントリーポイント
   entry: {
     main: './src/assets/js/script.js',
-    swiper: './src/assets/js/swiper.js',
+    // swiper: './src/assets/js/swiper.js',
   },
   // 出力ファイル
   output: {
