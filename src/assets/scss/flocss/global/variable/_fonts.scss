@@ -1,0 +1,63 @@
+// Kinto Sans Regular
+@font-face {
+  font-family: 'Kinto Sans Regular';
+  font-style: normal;
+  font-weight: 400;
+  src: url(/fonts/KintoSans-Regular.woff2) format('woff2');
+  src: url(/fonts/KintoSans-Regular.woff) format('woff');
+}
+
+// Kinto Sans Light
+@font-face {
+  font-family: 'Kinto Sans Light';
+  font-style: normal;
+  font-weight: 100;
+  src: url(/fonts/KintoSans-Light.woff2) format('woff2');
+  src: url(/fonts/KintoSans-Light.woff) format('woff');
+}
+
+// Kinto Sans Bold
+@font-face {
+  font-family: 'Kinto Sans Bold';
+  font-style: normal;
+  font-weight: 700;
+  src: url(/fonts/KintoSans-Bold.woff2) format('woff2');
+  src: url(/fonts/KintoSans-Bold.woff) format('woff');
+}
+
+// Foglihten
+@font-face {
+  font-family: Foglihten;
+  font-style: normal;
+  font-weight: normal;
+  src: url(/fonts/Foglihten.woff2) format('woff2');
+  src: url(/fonts/Foglihten.woff) format('woff');
+}
+
+// Bon Vivant
+@font-face {
+  font-family: 'Bon Vivant';
+  font-style: normal;
+  font-weight: normal;
+  src: url(/fonts/BonVivant.woff2) format('woff2');
+  src: url(/fonts/BonVivant.woff) format('woff');
+}
+
+// 和文フォント
+$Kinto-Sans-jp: 'Kinto Sans';
+
+// 欧文フォント
+$Foglihten: 'Foglihten';
+$Bon-Vivant: 'Bon Vivant';
+
+// サブフォント
+$sans-serif: 'Helvetica Neue', arial, 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'BIZ UDPGothic', meiryo, sans-serif;
+$serif: '游明朝', yumincho, 'Hiragino Mincho ProN W3', 'ヒラギノ明朝 ProN W3', 'Hiragino Mincho ProN', 'HG明朝E', 'ＭＳ Ｐ明朝', 'ＭＳ 明朝',
+  serif;
+
+// Japanese
+$font-jp: $Kinto-Sans-jp, $sans-serif;
+
+// English
+$font-en-primary: $Foglihten, $serif;
+$font-en-secondary: $Bon-Vivant;
