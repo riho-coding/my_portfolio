@@ -1,4 +1,4 @@
-//- lower/index.pug
+//- works/index.pug
 
 extends ../layout/_template
 
@@ -26,5 +26,6 @@ block main
 									span.p-works-project__category #{item.category}
 									.p-works-project__thumbnail.js-reveal-elm
 										img.js-reveal-img(src=[path] + "img/" + item.img_path alt=item.alt width="16" height="" decoding="async" loading="lazy")
+
 block script
 	script(src=[path]+"js/main.bundle.js")
