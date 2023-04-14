@@ -1,0 +1,103 @@
+@use 'sass:math';
+
+// 初期設定
+$base-font-size: 15;
+$viewport-min: 360;
+$viewport-max: 1400;
+
+// 値から単位を削除する関数
+@function remove-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return math.div($number, ($number * 0 + 1));
+  }
+  @return $number;
+}
+
+// remをpxのように使う関数
+@function rem($rem-font-size) {
+  @return math.div($rem-font-size, $base-font-size) * 1rem;
+}
+
+// e.q.
+// p {
+// 	font-size: rem(16);
+// }
+
+// vwをpxのように使う関数
+@function vw($vw-font-size, $viewport-max) {
+  $per: math.div(remove-unit($vw-font-size), remove-unit($viewport));
+  @return $per * 100vw;
+}
+
+// e.q.
+// p {
+// 	font-size: vw(32);
+// }
+
+// pxをfluidに扱う関数
+@function divide-root($number) {
+  @return math.div(remove-unit($number), $base-font-size);
+}
+
+@function fluid($min-font-size, $max-font-size) {
+  $min-unit: rem($min-font-size);
+  $max-unit: rem($max-font-size);
+  $min-number: divide-root($min-font-size);
+  $max-number: divide-root($max-font-size);
+  $min-breakpoint: divide-root($viewport-min);
+  $max-breakpoint: divide-root($viewport-max);
+  $slope: math.div(($max-number - $min-number), ($max-breakpoint - $min-breakpoint));
+  $calc-rem: ($min-breakpoint * -1 * $slope + $min-number) * 1rem;
+  $calc-vw: ($slope * 100) * 1vw;
+  @return clamp($min-unit, $calc-rem + $calc-vw, $max-unit);
+}
+
+// e.q.
+// p {
+// 	font-size: fluid(10, 16);
+// }
+
+// gapプロパティを使わずに、Flexboxで余白をつける
+@mixin flex-tile($column-number: 3, $column-gap: 20px, $row-gap: 20px, $flex-direction: row) {
+  // $column-numberが数値(単位なし)以外のとき、エラーを返す
+  @if type-of($column-number) != 'number' or not unitless($column-number) {
+    @error '第1引数は必ず数値(単位なし)で指定してください。';
+  }
+
+  $less: $column-number - 1;
+  $more: $column-number + 1;
+
+  display: flex;
+  flex-wrap: wrap;
+
+  // flex-direction: row;（初期値）の記述は省略する
+  @if $flex-direction == row-reverse {
+    flex-direction: row-reverse;
+  }
+
+  & > * {
+    width: calc((100% - (#{$column-gap} * #{$less})) / #{$column-number});
+  }
+
+  // 詳細度を上げた状態で(これ以降に出現するものと、詳細度を同じ条件に揃えて)マージンを一旦リセットする
+  & > *:nth-child(n) {
+    margin: 0;
+  }
+
+  & > *:not(:nth-child(#{$column-number}n + 1)) {
+    @if $flex-direction == row-reverse {
+      margin-right: #{$column-gap};
+    } @else {
+      margin-left: #{$column-gap};
+    }
+  }
+
+  & > *:nth-child(n + #{$more}) {
+    margin-top: #{$row-gap};
+  }
+}
+
+// e.q.
+// li {
+//   @include flex-tile(4, 20px, 40px);
+// }
